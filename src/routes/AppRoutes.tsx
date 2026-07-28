@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router";
 import { webroutes } from "./routesdata";
 
-function routes() {
+function AppRoutes() {
   console.log(webroutes);
 
   return (
@@ -19,4 +19,4 @@ function routes() {
   );
 }
 
-export default routes;
+export default AppRoutes;

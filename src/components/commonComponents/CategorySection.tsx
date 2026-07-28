@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const categories = [
   { id: 1, name: "Atta & Rice", icon: "🌾", color: "bg-orange-50" },
@@ -37,6 +38,17 @@ const CategorySection: React.FC = () => {
               </span>
             </div>
           ))}
+          <Link
+            to="/product_category"
+            className="flex flex-col items-center  cursor-pointer group"
+          >
+            {/* Circle Icon */}
+            <div
+              className={` w-16 h-16 md:w-20 md:h-20 rounded-full text-black  bg-green-600 flex items-center justify-center text-3xl md:text-4xl shadow-sm group-hover:shadow-md group-hover:-translate-y-1 transition-all duration-200 border border-white`}
+            >
+              See More
+            </div>
+          </Link>
         </div>
       </div>
 

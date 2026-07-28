@@ -7,31 +7,38 @@ import Footer from "./components/commonComponents/Footer";
 // import Register from "./components/commonComponents/Register";
 import ActiveVendors from "./components/homecomponent/ActiveVendors";
 import FlashDeals from "./components/homecomponent/FlashDeals";
+import Footer1 from "./components/homecomponent/footer1";
 import HeroSection from "./components/homecomponent/HeroSection";
 import ProductSection from "./components/homecomponent/ProductSection";
 import Reviews from "./components/homecomponent/Reviews";
 import VendorRedirect from "./components/homecomponent/VendorRedirect";
 import Nav from "./components/Nav";
+import VendorDashboard from "./components/vendorcomponent/VendorDashboard";
+import VendorHeader from "./components/vendorcomponent/VendorHeader";
+import VendorHub from "./components/vendorcomponent/VendorHub";
+
+import VendorLogin from "./components/vendorcomponent/VendorLogin";
+import AppRoutes from "./routes/AppRoutes";
 // import Cart from "./pages/cart/page";
 
 function App() {
   return (
     <div className="border w-screen">
-      <Nav />
-      <CategorySection />
-      <HeroSection />
-      <ActiveVendors />
-      <ProductSection />
-      <FlashDeals />
-      <Reviews />
+      <AppRoutes />
+
       {/* <Cart />
       <Login />
       <OTPLogin />
       <Register />
       <ForgetPassword /> */}
-      <VendorRedirect />
-      <Footer />
-      <div>i am Anubhav chaurasiya </div>
+
+      {/* <VendorLogin />
+      <VendorHeader />
+      <VendorDashboard />
+      <VendorHub /> */}
+
+      {/* <Footer /> */}
+      <Footer1 />
     </div>
   );
 }

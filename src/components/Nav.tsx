@@ -1,147 +1,100 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
+import { FiMenu, FiX } from "react-icons/fi";
+import { HiOutlineSparkles } from "react-icons/hi2";
 
-const Nav: React.FC = () => {
+type LoginProps = {
+  setIsLoginOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const Nav: React.FC<LoginProps> = ({ setIsLoginOpen }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-100 border w-full">
-      {/* Desktop & Tablet View */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo Section */}
-          <div className="">
-            <a href="/" className="flex items-center gap-1">
-              <span className="text-3xl font-extrabold tracking-tight">
-                <span className="text-green-600">Galli</span>
-                <span className="text-slate-800">Mart</span>
-              </span>
-            </a>
+    <header className="fixed  z-20 mx-auto max-w-7xl">
+      <div className="flex h-20 w-lvw  items-center justify-around px-4 sm:px-6 lg:px-8">
+        {/* Brand Logo */}
+        <div className="flex items-center gap-2 cursor-pointer ">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#D4AF37] to-[#AA7C11] text-white shadow-md">
+            <HiOutlineSparkles className="h-5 w-5" />
           </div>
-
-          {/* Search Bar (Grocery focused) */}
-          <div className="hidden md:flex flex-1 max-w-lg mx-10">
-            <div className="relative w-full">
-              <input
-                type="text"
-                placeholder="Search Daily Needs (Atta, Dal, Oil...)"
-                className="w-full bg-gray-50 border border-gray-200 rounded-lg py-2.5 px-4 pl-11 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all"
-              />
-              <div className="absolute left-3 top-3 text-gray-400">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          {/* User Actions */}
-          <div className="hidden md:flex items-center gap-6">
-            <button className="flex flex-col items-center text-gray-600 hover:text-green-600 transition-colors">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                />
-              </svg>
-              <span className="text-[10px] uppercase font-bold mt-0.5">
-                Profile
-              </span>
-            </button>
-
-            <button className="flex flex-col items-center text-gray-600 hover:text-green-600 transition-colors relative">
-              <Link to="/cart">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                  />
-                </svg>
-                <span className="text-[10px] uppercase font-bold mt-0.5">
-                  My Cart
-                </span>
-                <span className="absolute -top-1 -right-1 bg-green-600 text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">
-                  0
-                </span>
-              </Link>
-            </button>
-          </div>
-
-          {/* Mobile Menu Toggle */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 text-gray-600"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d={
-                    isMenuOpen
-                      ? "M6 18L18 6M6 6l12 12"
-                      : "M4 6h16M4 12h16m-7 6h7"
-                  }
-                />
-              </svg>
-            </button>
-          </div>
+          <span className="text-2xl font-serif font-bold tracking-tight text-slate-900">
+            Eventora<span className="text-[#D4AF37]">.</span>
+          </span>
         </div>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-700">
+          <a href="#venues" className="hover:text-[#D4AF37] transition-colors">
+            Venues
+          </a>
+          <a href="#vendors" className="hover:text-[#D4AF37] transition-colors">
+            Vendors
+          </a>
+          <a
+            href="#packages"
+            className="hover:text-[#D4AF37] transition-colors"
+          >
+            Packages
+          </a>
+          <a href="#about" className="hover:text-[#D4AF37] transition-colors">
+            About Us
+          </a>
+        </nav>
+
+        {/* CTA Buttons */}
+        <div className="hidden md:flex items-center space-x-4">
+          <button
+            className="text-sm font-semibold text-slate-700 hover:text-slate-900 px-4 py-2 transition-colors"
+            onClick={() => setIsLoginOpen(true)}
+          >
+            Log In
+          </button>
+          <button className="rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white shadow-lg hover:bg-[#D4AF37] hover:shadow-xl transition-all duration-300">
+            Plan an Event
+          </button>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden rounded-lg p-2 text-slate-700 hover:bg-slate-100"
+        >
+          {isMenuOpen ? (
+            <FiX className="h-6 w-6" />
+          ) : (
+            <FiMenu className="h-6 w-6" />
+          )}
+        </button>
       </div>
 
-      {/* Mobile Navigation Menu */}
+      {/* Mobile Menu Dropdown */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 p-4 space-y-4 shadow-xl">
-          <input
-            type="text"
-            placeholder="Search grocery..."
-            className="w-full bg-gray-100 border-none rounded-md py-3 px-4"
-          />
-          <div className="grid grid-cols-2 gap-4">
-            <button className="flex items-center justify-center gap-2 bg-green-50 text-green-700 py-3 rounded-lg font-semibold italic">
-              My Account
+        <div className="md:hidden absolute top-20 left-4 right-4 rounded-2xl bg-white/95 p-6 backdrop-blur-md shadow-2xl border border-white/20 z-50">
+          <div className="flex flex-col space-y-4 font-medium text-slate-800">
+            <a href="#venues" className="hover:text-[#D4AF37]">
+              Venues
+            </a>
+            <a href="#vendors" className="hover:text-[#D4AF37]">
+              Vendors
+            </a>
+            <a href="#packages" className="hover:text-[#D4AF37]">
+              Packages
+            </a>
+            <a href="#about" className="hover:text-[#D4AF37]">
+              About Us
+            </a>
+            <hr className="border-slate-100" />
+            <button className="w-full text-center font-semibold text-slate-700 py-2">
+              Log In
             </button>
-            <button className="flex items-center justify-center gap-2 bg-green-600 text-white py-3 rounded-lg font-semibold">
-              Cart (0)
+            <button className="w-full rounded-full bg-slate-900 py-3 text-center text-sm font-semibold text-white">
+              Plan an Event
             </button>
           </div>
         </div>
       )}
-    </nav>
+    </header>
   );
 };
 

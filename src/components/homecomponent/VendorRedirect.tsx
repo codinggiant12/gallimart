@@ -57,7 +57,7 @@ const VendorRedirect: React.FC = () => {
           {/* Redirect Button Area */}
           <div className=" w-full lg:w-auto">
             <a
-              href="https://vendor.gallimart.com" // Replace with your actual vendor website URL
+              href="/vendor" // Replace with your actual vendor website URL
               target="_blank"
               rel="noopener noreferrer"
               className="group relative flex items-center justify-center gap-3 bg-green-500 hover:bg-green-400 text-slate-900 px-10 py-6 rounded-2xl font-black text-sm uppercase tracking-[0.15em] transition-all shadow-2xl shadow-green-500/20 active:scale-95 w-full lg:w-72"
